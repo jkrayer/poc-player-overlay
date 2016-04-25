@@ -19,4 +19,4 @@ app.get('/', function (req, res) {
 .use(express.static(config.root + '/public'))
 .listen(7777);
 
-//require('./routes/items.js')(app);
+require('./routes/routes')(app);
