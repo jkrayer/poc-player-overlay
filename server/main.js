@@ -8,7 +8,7 @@ var ReactDOM = require('react-dom/server');
 
 var app = new express();
 
-//require('./database');
+require('./database');
 
 //app.use(parser.json());
 //app.use(parser.urlencoded({extended:false})); //post requests
