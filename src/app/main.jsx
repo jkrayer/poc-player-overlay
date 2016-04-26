@@ -2,6 +2,7 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Player from './Components/player.jsx'
 import ajax from './helpers/ajax'
 
 export default class App extends React.Component {
@@ -16,7 +17,11 @@ export default class App extends React.Component {
   }
   render () {
     return (
-      <h1>{"Hello Wolrd!"}</h1>
+      <div className="players-wrapper">
+      {
+        this.state.players.map( player => <Player data={player} /> )
+      }
+    </div>
     );
   }
 }
