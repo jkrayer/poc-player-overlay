@@ -2,8 +2,9 @@
   "name": "poc-map-points",
   "version": "0.0.1",
   "description": "Low-Fi POC for annotating maps",
-  "main": "./server/server.js",
+  "main": "./server/main.js",
   "scripts": {
+    "copy:static":"cp src/static/index.html public/index.ejs && cp -r src/static/img/ public/img",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
