@@ -7,13 +7,13 @@ export default class Player extends React.Component {
     super(props);
   }
   render () {
-    <h1>this.props.data.characterName</h1>
+    return (<h1>{this.props.data.characterName}</h1>);
   }
 }
 
 Player.propTypes = {
   data: React.PropTypes.shape({
-    id: React.PropTypes.string.isRequired,
+    _id: React.PropTypes.string.isRequired,
     characterName: React.PropTypes.string.isRequired,
     playerName: React.PropTypes.string.isRequired,
     tag: React.PropTypes.string.isRequired,
