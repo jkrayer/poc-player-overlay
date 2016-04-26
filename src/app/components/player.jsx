@@ -7,7 +7,33 @@ export default class Player extends React.Component {
     super(props);
   }
   render () {
-    return (<h1>{this.props.data.characterName}</h1>);
+    let { data } = this.props;
+    return (
+      <article>
+        <header>
+          <h1>{data.characterName} <span>{data.playerName}</span></h1>
+          <p>{data.tag}</p>
+        </header>
+        <dl>
+          <dt>{"Initiative Modifier"}</dt>
+          <dd>{data.initiativeModifier}</dd>
+          <dt>{"Armor Class"}</dt>
+          <dd>{data.armorClass}</dd>
+          <dt>{"Hit Points"}</dt>
+          <dd>{data.currentHitPoints + "/" + data.maxHitPoints}</dd>
+        </dl>
+        <dl>
+          <dt>{"Passive Perception"}</dt>
+          <dd>{data.passivePerception}</dd>
+          <dt>{"Passive Investigation"}</dt>
+          <dd>{data.passiveInvestigation}</dd>
+          <dt>{"Passive Stealth"}</dt>
+          <dd>{data.passiveStealth}</dd>
+        </dl>
+        <p>{data.trainedSkills.join(', ')}</p>
+        <p>{data.additionalInfo}</p>
+      </article>
+    );
   }
 }
 
