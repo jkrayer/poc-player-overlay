@@ -5,13 +5,28 @@ import React from 'react';
 export default class Player extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      collapsed: true
+    };
+    this.handleClick = this.handleClick.bind(this);
+  }
+  handleClick () {
+    this.setState({
+      collapsed: !this.state.collapsed
+    });
   }
   render () {
     let { data } = this.props;
+    let { collapsed } = this.state;
     return (
-      <article className="player-card">
+      <article className={collapsed ? 'player-card collapsed' : 'player-card expanded'}>
         <header>
-          <h1 className="player-card-header">{data.characterName} <span>{data.playerName}</span></h1>
+          <h1
+              className="player-card-header"
+              onClick={this.handleClick}
+          >
+            {data.characterName} <span>{data.playerName}</span>
+          </h1>
           <p className="player-card-tag">{data.tag}</p>
         </header>
         <dl className="player-card-dl">
