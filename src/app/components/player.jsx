@@ -22,7 +22,7 @@ export default class Player extends React.Component {
           <dt>{"Hit Points"}</dt>
           <dd>{data.currentHitPoints + "/" + data.maxHitPoints}</dd>
         </dl>
-        <dl className="player-card-dl">
+        <dl className="player-card-dl player-card-dl-pasive">
           <dt>{"Passive Perception"}</dt>
           <dd>{data.passivePerception}</dd>
           <dt>{"Passive Investigation"}</dt>

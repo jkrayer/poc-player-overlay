@@ -4,13 +4,15 @@
   "description": "Low-Fi POC for annotating maps",
   "main": "./server/main.js",
   "scripts": {
-    "build": "npm run mkdirs && npm run copy && npm run browserify",
+    "build": "npm run mkdirs && npm run copy && npm run compile:sass && npm run browserify",
     "browserify": "browserify src/app/main.jsx -o public/js/bundle.js -t [babelify]",
+    "compile:sass":"node-sass src/sass/style.scss public/css/style.css",
     "copy": "npm run copy:static && npm run copy:normalize",
     "copy:static": "cp src/static/index.html public/index.ejs && cp -r src/static/img/ public/img",
     "copy:normalize": "cp node_modules/normalize-css/normalize.css public/css",
     "mkdirs": "mkdir -p public/img && mkdir -p public/js && mkdir -p public/css",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch:css": "nodemon -e scss -x \"npm run compile:sass\""
   },
   "repository": {
     "type": "git",
@@ -38,6 +40,7 @@
     "babel-preset-react": "6.5.0",
     "babelify": "7.2.0",
     "browserify": "13.0.0",
+    "node-sass": "^3.6.0",
     "normalize-css": "2.3.1"
   }
 }
