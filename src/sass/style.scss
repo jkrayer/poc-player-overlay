@@ -68,11 +68,14 @@ h1, p, dl, dt, dd {
     margin-bottom: 10px;
     dt {
       float: left;
+      padding-right: 5px;
       font-weight: 700;
     }
-    dd { margin-left: 125px; }
-    &-passive {
-      dd { margin-left: 155px; }
+  }
+  &-hpform {
+    display: inline;
+    input {
+      width: 30px;
     }
   }
   &.collapsed {
@@ -80,4 +83,18 @@ h1, p, dl, dt, dd {
     overflow: hidden;
   }
   &.expanded { max-height: 300px; }
+}
+
+.hpform {
+  &-span { padding-right: 5px; }
+  &-input {
+    position: relative;
+    top: 0px;
+    height: 16px;
+    padding: 2px 0px 0px;
+    border: 0px none;
+    font-size: 0.875rem;
+    text-align: center;
+    background-color: #dadada;
+  }
 }
