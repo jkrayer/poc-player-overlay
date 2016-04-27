@@ -1,6 +1,7 @@
 'use strict';
 
 import React from 'react';
+import HitPoints from './components/hitpoints.jsx'
 
 export default class Player extends React.Component {
   constructor(props) {
@@ -35,7 +36,12 @@ export default class Player extends React.Component {
           <dt>{"Armor Class"}</dt>
           <dd>{data.armorClass}</dd>
           <dt>{"Hit Points"}</dt>
-          <dd>{data.currentHitPoints + "/" + data.maxHitPoints}</dd>
+          <dd>
+            <HitPoints
+                currentHitPoints={data.currentHitPoints}
+                maxHitPoints={data.maxHitPoints}
+            />
+          </dd>
         </dl>
         <dl className="player-card-dl player-card-dl-pasive">
           <dt>{"Passive Perception"}</dt>
