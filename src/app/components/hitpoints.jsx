@@ -5,11 +5,40 @@ import React from 'react';
 export default class HitPoints extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      input: ''
+    };
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  handleSubmit (event) {
+    event.preventDefault();
+    //HPAction.set({
+    //  currentHitPoints: parseInt(this.state.input, 10)
+    //});
+    this.setState({
+      input: ''
+    });
+  }
+  handleChange (event) {
+    this.setState({
+      input: event.target.value
+    });
   }
   render () {
-    let {maxHitPoints, currentHitPoints} = this.props;
+    let {maxHitPoints, currentHitPoints, className} = this.props;
     return (
-      <div>{currentHitPoints + "/" + maxHitPoints}</div>
+      <form
+          className={className}
+          onSubmit={this.handleSubmit}
+      >
+        <span className="hpform-span">{currentHitPoints + "/" + maxHitPoints}</span>
+        <input
+            className="hpform-input"
+            onChange={this.handleChange}
+            type="text"
+            value={this.state.input}
+        />
+      </form>
     );
   }
 }
