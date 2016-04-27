@@ -25,7 +25,7 @@ export default class Player extends React.Component {
               className="player-card-header"
               onClick={this.handleClick}
           >
-            {data.characterName} <span>{data.playerName}</span>
+            <span>{data.playerName}</span> {data.characterName}
           </h1>
           <p className="player-card-tag">{data.tag}</p>
         </header>
