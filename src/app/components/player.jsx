@@ -1,7 +1,7 @@
 'use strict';
 
 import React from 'react';
-import HitPoints from './components/hitpoints.jsx'
+import HitPoints from './hitpoints.jsx'
 
 export default class Player extends React.Component {
   constructor(props) {
@@ -43,7 +43,7 @@ export default class Player extends React.Component {
             />
           </dd>
         </dl>
-        <dl className="player-card-dl player-card-dl-pasive">
+        <dl className="player-card-dl player-card-dl-passive">
           <dt>{"Passive Perception"}</dt>
           <dd>{data.passivePerception}</dd>
           <dt>{"Passive Investigation"}</dt>
