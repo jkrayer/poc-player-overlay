@@ -9,12 +9,12 @@ export default class Player extends React.Component {
   render () {
     let { data } = this.props;
     return (
-      <article>
+      <article className="player-card">
         <header>
-          <h1>{data.characterName} <span>{data.playerName}</span></h1>
-          <p>{data.tag}</p>
+          <h1 className="player-card-header">{data.characterName} <span>{data.playerName}</span></h1>
+          <p className="player-card-tag">{data.tag}</p>
         </header>
-        <dl>
+        <dl className="player-card-dl">
           <dt>{"Initiative Modifier"}</dt>
           <dd>{data.initiativeModifier}</dd>
           <dt>{"Armor Class"}</dt>
@@ -22,7 +22,7 @@ export default class Player extends React.Component {
           <dt>{"Hit Points"}</dt>
           <dd>{data.currentHitPoints + "/" + data.maxHitPoints}</dd>
         </dl>
-        <dl>
+        <dl className="player-card-dl">
           <dt>{"Passive Perception"}</dt>
           <dd>{data.passivePerception}</dd>
           <dt>{"Passive Investigation"}</dt>
@@ -30,8 +30,8 @@ export default class Player extends React.Component {
           <dt>{"Passive Stealth"}</dt>
           <dd>{data.passiveStealth}</dd>
         </dl>
-        <p>{data.trainedSkills.join(', ')}</p>
-        <p>{data.additionalInfo}</p>
+        <p className="player-card-p">{data.trainedSkills.join(', ')}</p>
+        <p className="player-card-p">{data.additionalInfo}</p>
       </article>
     );
   }

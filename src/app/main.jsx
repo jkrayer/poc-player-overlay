@@ -22,7 +22,7 @@ export default class App extends React.Component {
       return null;
     }
     return (
-      <div className="players-wrapper">
+      <div className="player-card-wrapper">
       {
         this.state.players.map( player => <Player data={player} key={player._id} /> )
       }
