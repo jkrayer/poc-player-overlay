@@ -10,25 +10,34 @@ export default class App extends React.Component {
     super(props);
     this.state = null;
   }
-  componentDidMount () {
-    let self = this;
-    ajax.get('api/players').then(function(data){
-      self.setState({players: data});
-    });
-  }
   render () {
     //better way to stop render before data is present? Probably
-    if (this.state === null) {
+    if (this.props.players === null) {
       return null;
     }
     return (
       <div className="player-card-wrapper">
       {
-        this.state.players.map( player => <Player data={player} key={player._id} /> )
+        this.props.players.map( player => <Player data={player} key={player._id} /> )
       }
       </div>
     );
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('app-mount-point'));
+App.defaultProps = {
+  players: null
+};
+
+var PlayerStore = require('./../stores/player-store.jsx');
+
+var initial = PlayerStore.getPlayers();
+
+function render () {
+  ReactDOM.render(<App players={initial} />, document.getElementById('app-mount-point'));
+}
+
+PlayerStore.onChange(function (players) {
+  initial = players;
+  render();
+});
