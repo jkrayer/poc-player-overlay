@@ -16,7 +16,7 @@ function PlayerStore() {
     return players;
   }
 
-  function deleteGroceryItem(player) {
+  function updatePlayer(player) {
     var index;
     players.filter(
       function(_player, _index){

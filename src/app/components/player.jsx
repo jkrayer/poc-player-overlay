@@ -2,6 +2,7 @@
 
 import React from 'react';
 import HitPoints from './hitpoints.jsx'
+import action from '../../actions/players-action-creator.jsx';
 
 export default class Player extends React.Component {
   constructor(props) {
@@ -10,11 +11,17 @@ export default class Player extends React.Component {
       collapsed: true
     };
     this.handleClick = this.handleClick.bind(this);
+    this.handleHPSubmit = this.handleHPSubmit.bind(this);
   }
   handleClick () {
     this.setState({
       collapsed: !this.state.collapsed
     });
+  }
+  handleHPSubmit (newCurrent) {
+    let player = this.props.data;
+    player.currentHitPoints = newCurrent;
+    action.update(player);
   }
   render () {
     let { data } = this.props;
@@ -40,6 +47,7 @@ export default class Player extends React.Component {
             <HitPoints
                 className="player-card-hpform"
                 currentHitPoints={data.currentHitPoints}
+                handleSubmit={this.handleHPSubmit}
                 maxHitPoints={data.maxHitPoints}
             />
           </dd>

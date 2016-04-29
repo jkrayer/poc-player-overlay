@@ -9,12 +9,13 @@ export default class HitPoints extends React.Component {
       input: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
   handleSubmit (event) {
     event.preventDefault();
-    //HPAction.set({
-    //  currentHitPoints: parseInt(this.state.input, 10)
-    //});
+    let currentHP = this.props.currentHitPoints + parseInt(this.state.input, 10);
+    let newCurrent = Math.min(currentHP, this.props.maxHitPoints);
+    this.props.handleSubmit(newCurrent);
     this.setState({
       input: ''
     });
@@ -44,6 +45,7 @@ export default class HitPoints extends React.Component {
 }
 
 HitPoints.propTypes = {
-  maxHitPoints: React.PropTypes.number.isRequired,
-  currentHitPoints: React.PropTypes.number.isRequired
+  currentHitPoints: React.PropTypes.number.isRequired,
+  handleSubmit: React.PropTypes.func.isRequired,
+  maxHitPoints: React.PropTypes.number.isRequired
 };
