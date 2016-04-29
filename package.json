@@ -6,7 +6,7 @@
   "scripts": {
     "build": "npm run mkdirs && npm run copy && npm run compile:sass && npm run browserify",
     "browserify": "browserify src/app/main.jsx -o public/js/bundle.js -t [babelify]",
-    "compile:sass":"node-sass src/sass/style.scss public/css/style.css",
+    "compile:sass": "node-sass src/sass/style.scss public/css/style.css",
     "copy": "npm run copy:static && npm run copy:normalize",
     "copy:static": "cp src/static/index.html public/index.ejs && cp -r src/static/img/ public/img",
     "copy:normalize": "cp node_modules/normalize-css/normalize.css public/css",
@@ -29,6 +29,7 @@
     "express": "4.13.4",
     "jquery": "^2.2.3",
     "mongoose": "4.4.13",
+    "node-uuid": "^1.4.7",
     "react": "15.0.1",
     "react-dom": "15.0.1",
     "react-redux": "4.4.5",
