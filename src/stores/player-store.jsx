@@ -16,6 +16,7 @@ function PlayerStore() {
     return players;
   }
 
+  //so much potential for problems
   function updatePlayer(player) {
     var index;
     players.filter(
@@ -27,7 +28,7 @@ function PlayerStore() {
     );
     players[index] = player;
     triggerListeners();
-    //RestHelper.del('api/items/' + item/_id);
+    AjaxHelper.patch('api/players/' + player._id, player);
   }
 
   function onChange(listener) {
