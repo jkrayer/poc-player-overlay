@@ -2,39 +2,14 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Player from './Components/player.jsx'
+import PlayerContainer from './components/player-container.jsx'
 import ajax from './helpers/ajax'
 
-export default class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = null;
-  }
-  render () {
-    //better way to stop render before data is present? Probably
-    if (this.props.players === null) {
-      return null;
-    }
-    return (
-      <div className="player-card-wrapper">
-      {
-        this.props.players.map( player => <Player data={player} key={player._id} /> )
-      }
-      </div>
-    );
-  }
-}
-
-App.defaultProps = {
-  players: null
-};
-
-var PlayerStore = require('./../stores/player-store.jsx');
-
-var initial = PlayerStore.getPlayers();
+const PlayerStore = require('./../stores/player-store.jsx');
+let initial = PlayerStore.getPlayers();
 
 function render () {
-  ReactDOM.render(<App players={initial} />, document.getElementById('app-mount-point'));
+  ReactDOM.render(<PlayerContainer players={initial} />, document.getElementById('app-mount-point'));
 }
 
 PlayerStore.onChange(function (players) {
