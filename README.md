@@ -8,3 +8,7 @@ Low-Fi POC for annotating maps
 /maps       (List of Maps)     <- List maps [/api/maps] (Perhaps load preview here)
 /parties    (List of Parties)  <- List parties [/api/parties] (Load into app here)
 /map/:id    (Single Map)       <- Show map [/api/maps/:mapid] (Load map and points here, players overlay)
+
+## React Router
+
+/edit-players/ (Edit Players (duh)) <- edit all fields
